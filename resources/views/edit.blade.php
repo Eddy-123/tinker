@@ -23,6 +23,20 @@
                         @enderror
                     </div>
                     <div class="field">
+                        <label for="" class="label">Categories</label>
+                        <div class="select is-multiple">
+                            <select name="cats[]" multiple>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}" 
+                                        {{ in_array($category->id, old('cats')?: $film->categories->pluck('id')->all()) ? 
+                                        'selected' : '' }}>
+                                        {{ $category->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
                         <label for="" class="label">Annee de diffusion</label>
                         <div class="control">
                             <input class="input" type="number" name="year" 

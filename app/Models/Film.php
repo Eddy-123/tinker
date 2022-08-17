@@ -9,10 +9,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Film extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ['title', 'year', 'description', 'category_id'];
+    protected $fillable = ['title', 'year', 'description'];
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsToMany(Category::class);
     }
 }
