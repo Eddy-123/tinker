@@ -10,6 +10,7 @@
         <div class="card-content">
             <div class="content">
                 <p>Annee de sortie: {{ $film->year }}</p>
+                <p>Categorie: {{ $category }}</p>
                 <hr>
                 <p>{{ $film->description }}</p>
             </div>

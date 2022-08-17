@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 use App\Models\Film;
 
@@ -15,12 +17,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Film::factory(10)->create();
-
-        // \App\Models\User::factory(10)->create();
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Category::factory()
+            ->has(Film::factory()->count(4))
+            ->count(10)
+            ->create();
     }
 }
